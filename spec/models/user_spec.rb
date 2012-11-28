@@ -77,7 +77,9 @@ describe User do
     before { @user.password_confirmation = nil }
     it { should_not be_valid }
   end
-  
+
+#  user = User.find_by_email(email)
+#  current_user = user.authenticate(password)
   it { should respond_to(:authenticate) }
   
   describe "with a password that's too short" do
@@ -97,7 +99,7 @@ describe User do
       let(:user_for_invalid_password) { found_user.authenticate("invalid") }
       
       it { should_not == user_for_invalid_password }
-      specify { user_for_invalid_passord.should be_false }
+      specify { user_for_invalid_password.should be_false }
     end
   end
 end
