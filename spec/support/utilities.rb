@@ -19,4 +19,5 @@ def sign_in(user)
   click_button "Sign in"
   # Sign in when not using Capybara as well.
   cookies[:remmeber_token] = user.remember_token
+  #post sessions_path, :email => user.email, :password => user.password
 end
